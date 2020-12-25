@@ -50,7 +50,7 @@ public class CallBlock : Element
 
     public override Element GetNextElement()
     {
-        if(!IsStarted)//if(LastQuestionAsked == null)
+        if(!IsStarted)
         {
             LastQuestionAsked = LeadingQuestion;
         }

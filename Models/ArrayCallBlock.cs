@@ -27,24 +27,8 @@ public class ArrayCallBlock<T> : CallBlock
 
         return e;
     }
-
-    public ICollectionItem GetCurrentItem()
-    {
-        return (ICollectionItem)CollectionArray[Index];
-    }
-
-    public ICollectionItem GetItem(int index)
-    {
-        return (ICollectionItem)CollectionArray[index];
-    }
 }
-public class ArrayCallBlockFactory
-{
-    public static ArrayCallBlock<T> GetArrayCallBlock<T>(IEnumerable<T> collection)
-    {
-        return new ArrayCallBlock<T>("",collection, null);
-    }
-}
+
 
 
 

@@ -25,16 +25,6 @@ public abstract class Element
         return Children.Find(m => m.Id == childId);
     }
 
-    protected Element FindNextElement()
-    {
-        Element e = GetNextElement();
-
-        e = e.EvaluateCondition();
-
-        return e;
-
-    }
-
     protected Element EvaluateCondition()
     {
         //for demonstration, assume only one child but reality is not the case

@@ -23,12 +23,5 @@ namespace mvc.Controllers
             return View(vm);
 
         }
-
-        private IEnumerable<ICollectionItem> Convert<T>(IEnumerable<T> c)
-        {
-            var z = c.Cast<ICollectionItem>(); 
-            
-            return z;
-        }
     }
 }
