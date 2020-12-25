@@ -1,0 +1,19 @@
+
+@model RespondentViewModel
+
+<div>
+    @foreach (var item in Model.Medications.CollectionArray)
+    {
+        
+        while(!Model.Medications.IsDone)
+        {
+            if(!Model.Medications.CallBlock.IsStarted)
+            {
+                <p><b>@Model.Medications.GetCurrentItem().Name</b></p>
+            }
+            var q = (Question) Model.Medications.GetNextElement();
+            <p>@q.Information.QuestionText</p>
+        }
+    }
+
+</div>
