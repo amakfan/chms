@@ -12,6 +12,12 @@ public class ArrayCallBlock<T> : CallBlock
         CollectionArray = (List<T>)collectionArray;
         CallBlock = callBlock; 
     }
+    public ArrayCallBlock(string id, IEnumerable<T> collectionArray, CallBlock callBlock, string medicationId, string questionId)
+    : this(id, collectionArray, callBlock)
+    {
+        SetStartIndex((IEnumerable<ICollectionItem>)collectionArray, medicationId);
+        CallBlock.MoveToElement(questionId);
+    }
 
     public override Element GetNextElement()
     {
@@ -42,6 +48,11 @@ public class ArrayCallBlock<T> : CallBlock
     public ICollectionItem GetItem(int index)
     {
         return index < CollectionArray.Count ? (ICollectionItem)CollectionArray[index] : null;
+    }
+
+    public void SetStartIndex(IEnumerable<ICollectionItem> collection, string startId)
+    {
+        Index = collection.AsQueryable().ToList().FindIndex(m => m.Id == startId);
     }
 }
 

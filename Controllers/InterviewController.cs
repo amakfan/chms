@@ -27,12 +27,14 @@ namespace mvc.Controllers
         [HttpPost]
         public IActionResult NextQuestion(string mId, string qId)
         {
-            // Respondent r = new Respondent();
-            // ArrayCallBlock<Medication> acb = new ArrayCallBlock<Medication>("", r.Medications, new CallBlock("CNFRM"));
+            Respondent r = new Respondent();
 
-            // Question current = (Question)acb.CallBlock.MoveToElement(qId);
+            ArrayCallBlock<Medication> acb = new ArrayCallBlock<Medication>("", r.Medications, new CallBlock("CNFRM"), mId, qId);
 
-            return PartialView("_Question", null);
+            Question next = (Question)acb.GetNextElement();
+            ICollectionItem medication = acb.GetCurrentItem();
+
+            return PartialView("_Question", new QuestionViewModel() { Question = next, Medication = medication});
 
 
 

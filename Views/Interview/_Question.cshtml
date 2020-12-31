@@ -1,29 +1,28 @@
 @model QuestionViewModel
 
-@if(Model != null)
+@if(Model.Medication != null)
 {
     <div id="question">
         <p><b>@Model.Medication.Name</b></p>
         <p>@Model.Question.Information.QuestionText</p>
-        @Html.Hidden("mId", Model.Medication.Id)
-        @Html.Hidden("qId", Model.Question.Id)
+        @Html.Hidden("hidden-medicationId", Model.Medication.Id)
+        @Html.Hidden("hidden-questionId", Model.Question.Id)
         <a id="next" href="#">Next</a>
     </div>
-
 }
-
 
 <script>
     document.addEventListener("DOMContentLoaded", function bind() {
+
         $('#next').on('click', function(e){
             e.preventDefault();
             $.ajax({
                 url: '/Interview/NextQuestion',
-                cache: 'false',
+                cache: false,
                 method: 'POST',
                 data: {
-                    mId: $('#mId').val(),
-                    qId: $('#qId').val()
+                    mId: $('#hidden-medicationId').val(),
+                    qId: $('#hidden-questionId').val()
                 },
                 success: function(data)
                 {
@@ -36,3 +35,5 @@
     });
 
 </script>
+
+
