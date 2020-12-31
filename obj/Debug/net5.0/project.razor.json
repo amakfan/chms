@@ -15641,6 +15641,11 @@
       "FilePath": "/home/andrew/Documents/chms/chms/Views/Shared/Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/andrew/Documents/chms/chms/Views/Interview/_Question.cshtml",
+      "TargetPath": "Views\\Interview\\_Question.cshtml",
+      "FileKind": "mvc"
     }
   ],
   "SerializationFormat": "0.2"

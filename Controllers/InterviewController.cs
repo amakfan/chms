@@ -23,5 +23,20 @@ namespace mvc.Controllers
             return View(vm);
 
         }
+
+        [HttpPost]
+        public IActionResult NextQuestion(string mId, string qId)
+        {
+            // Respondent r = new Respondent();
+            // ArrayCallBlock<Medication> acb = new ArrayCallBlock<Medication>("", r.Medications, new CallBlock("CNFRM"));
+
+            // Question current = (Question)acb.CallBlock.MoveToElement(qId);
+
+            return PartialView("_Question", null);
+
+
+
+        }
     }
+    
 }

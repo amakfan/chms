@@ -39,3 +39,4 @@
 /home/andrew/Documents/chms/chms/obj/Debug/net5.0/mvc.pdb
 /home/andrew/Documents/chms/chms/obj/Debug/net5.0/mvc.genruntimeconfig.cache
 /home/andrew/Documents/chms/chms/obj/Debug/net5.0/mvc.csproj.CopyComplete
+/home/andrew/Documents/chms/chms/obj/Debug/net5.0/Razor/Views/Interview/_Question.cshtml.g.cs

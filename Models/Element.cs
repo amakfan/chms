@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 public abstract class Element
 {
-    protected string Id;
+    public string Id { get; protected set; }
     protected List<Element> Children;
     protected string Condition;
 

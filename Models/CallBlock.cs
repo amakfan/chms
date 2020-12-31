@@ -64,6 +64,24 @@ public class CallBlock : Element
         return LastQuestionAsked;
     }
 
+    public Element MoveToElement(string id)
+    {
+        Element e = null;
+
+        RestartCallBlock(this);
+
+        while(!IsDone)
+        {
+            e = GetNextElement();
+            if(e.Id == id)
+            {
+                break;
+            }
+        }
+
+        return e;
+    }
+
     protected static void RestartCallBlock(CallBlock cb)
     {
         cb.LastQuestionAsked = null;
