@@ -7,9 +7,46 @@
 
         var question = (Question)Model.Medications.CallBlock.GetNextElement();
 
-        Html.RenderPartial("_Question", new QuestionViewModel() { Question = question, Medication = medication});
+        foreach(var item in Model.Medications.CollectionArray)
+        {
+            while(item == Model.Medications.GetCurrentItem())
+            {
+                Html.RenderPartial("_Question", new QuestionViewModel() { Question = question, Medication = item});
+                
+                question = (Question)Model.Medications.GetNextElement();
+            }
+        }
+        <a id="next" href="#">Next</a>
     }
 
-
 </div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function bind() {
+
+        var current = $('.interview').first();
+        current.removeAttr('hidden');
+
+        $('#next').on('click', function(e){
+            e.preventDefault();
+            console.log('click');
+
+            var idx = $('.interview').index(current);
+
+            current.hide();
+
+            current = $('.interview').eq(idx + 1);
+
+            current.removeAttr('hidden');
+
+            if(idx + 1 >= $('.interview').length)
+            {
+                $('#next').hide();
+            }
+
+        })
+    });
+
+</script>
 

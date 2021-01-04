@@ -2,38 +2,14 @@
 
 @if(Model.Medication != null)
 {
-    <div id="question">
+    <div id="question" class="interview" hidden>
         <p><b>@Model.Medication.Name</b></p>
         <p>@Model.Question.Information.QuestionText</p>
         @Html.Hidden("hidden-medicationId", Model.Medication.Id)
         @Html.Hidden("hidden-questionId", Model.Question.Id)
-        <a id="next" href="#">Next</a>
+        @{
+            Html.RenderPartial("_Response", Model.Question);
+        }
     </div>
 }
-
-<script>
-    document.addEventListener("DOMContentLoaded", function bind() {
-
-        $('#next').on('click', function(e){
-            e.preventDefault();
-            $.ajax({
-                url: '/Interview/NextQuestion',
-                cache: false,
-                method: 'POST',
-                data: {
-                    mId: $('#hidden-medicationId').val(),
-                    qId: $('#hidden-questionId').val()
-                },
-                success: function(data)
-                {
-                    $('#question').html(data);
-                    bind();
-                }
-
-            });
-        })
-    });
-
-</script>
-
 
